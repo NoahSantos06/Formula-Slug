@@ -20,6 +20,7 @@ R1 = V_Omax / I2 # resistor that sets output voltage scale of LM2907. Controls h
 # RPM = V_o / (V_cc * f_in * C1 * R1 * k)
 
 rpm_per_count = (60 * V_ref) / (32767 * V_cc * R1 * C1 * k * T)
+print(rpm_per_count)
 # rpm_per_count = 0.18356
 mph_per_rpm = 0.0476
 # mph_per_rpm = mph_per_rpm
