@@ -3,8 +3,8 @@ import numpy as np
 
 pi = np.pi
 R_w = 8 # radius of wheel in inches
-T = 62 # number of teeth per revolution
-V_cc = 5 # fixed supply voltage powering the LM2907
+T = 60 # number of teeth per revolution
+V_cc = 3.3 # fixed supply voltage powering the LM2907
 V_max = 51.61 / 3600 # max velocity recorded 
 k = 1 # gain constant typically 1
 I2 = 0.00018 # varies 140 - 240 uA
@@ -15,10 +15,12 @@ v_max = (63360 * V_max * T) / (2 * pi * R_w) # maximum input frequency
 C1 = I2 / (v_max * V_cc) # timing capicitator
 R1 = V_Omax / I2 # resistor that sets output voltage scale of LM2907. Controls how much output voltage we get per hertz of input frequency
 
-# V_o = data found in parquet columns
+# V_o = otuput voltage that is then converted into the unsigned 16 bit integer
+# count = (60 * V_ref) / (32767)    to convert from analog voltage to count 
 # RPM = V_o / (V_cc * f_in * C1 * R1 * k)
 
 rpm_per_count = (60 * V_ref) / (32767 * V_cc * R1 * C1 * k * T)
+# rpm_per_count = 0.18356
 mph_per_rpm = 0.0476
 # mph_per_rpm = mph_per_rpm
 
