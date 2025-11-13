@@ -14,22 +14,19 @@ motor_rpm = df["SME_TRQSPD_Speed"]
 fig = plt.figure()
 
 ax1 = fig.add_subplot(221)
-ax1.plot(front_left_wheel_speed * 0.8452494744062437, label="wheel speed -> rpm")
-ax1.plot(motor_rpm * (11/49), label="motor rpm")
-ax1.plot(gps_speed * (63360/60) * (1/(16*np.pi)), label="gps speed -> rpm")
-ax1.set_title("gps speed -> wheel rpm vs motor rpm -> wheel rpm")
-ax1.legend()
+ax1.plot(back_left_wheel_speed)
+ax1.set_title("back left wheel speed")
 
 ax2 = fig.add_subplot(222)
-ax2.plot(gps_speed)
-ax2.set_title("gps speed")
+ax2.plot(back_right_wheel_speed)
+ax2.set_title("back right wheel speed")
 
 ax3 = fig.add_subplot(223)
-ax3.plot(motor_rpm * (11/49))
-ax3.set_title("motor rpm -> wheel rpm")
+ax3.plot(front_left_wheel_speed)
+ax3.set_title("front left wheel speed")
 
 ax4 = fig.add_subplot(224)
-ax4.scatter(motor_rpm*(11/49), front_left_wheel_speed * 0.8452494744062437)
-ax4.set_title("motor rpm -> wheel rpm vs wheel speed -> wheel rpm")
+ax4.plot(front_right_wheel_speed)
+ax4.set_title("front right wheel speed")
 
 plt.show()
