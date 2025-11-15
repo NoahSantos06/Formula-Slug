@@ -18,28 +18,33 @@ motor_rpm = "SME_TRQSPD_Speed"
 fig = plt.figure()
 
 wheel_speed_coeff = 0.8452494744062437
+rpm_to_mph_coeff = (2 * np.pi * 8 * 60) / 63360
 
 ax1 = fig.add_subplot(221)
-ax1.plot(df_1108_11_54[fl_wheel_speed] * wheel_speed_coeff, label="fl wheel speed to rpm")
-ax1.plot(df_1108_11_54[motor_rpm] * (12/41), label="motor rpm to wheel rpm")
+# ax1.scatter(df_1108_11_54[fl_wheel_speed] * wheel_speed_coeff, df_1108_11_54[motor_rpm] * (12/41))
+ax1.plot(df_1108_11_54[fl_wheel_speed] * wheel_speed_coeff, label="fl wheel speed to rpm", alpha=0.6)
+ax1.plot(df_1108_11_54[motor_rpm] * (12/41), label="motor rpm to wheel rpm", alpha=0.6)
 ax1.set_title("wheel speed conversion vs motor rpm conversion for 1108-11_54")
 ax1.legend()
 
 ax2 = fig.add_subplot(222)
+# ax2.scatter(df_1109_4_26[fl_wheel_speed] * wheel_speed_coeff, df_1109_4_26[motor_rpm] * (12/41))
 ax2.plot(df_1109_4_26[fl_wheel_speed] * wheel_speed_coeff, label="fl wheel speed to rpm")
 ax2.plot(df_1109_4_26[motor_rpm] * (12/41), label="motor rpm to wheel rpm")
 ax2.set_title("wheel speed conversion vs motor rpm conversion for 1109-4_26")
 ax2.legend()
 
 ax3 = fig.add_subplot(223)
+# ax3.scatter(df_1109_4_30[fl_wheel_speed] * wheel_speed_coeff, df_1109_4_30[motor_rpm] * (12/41))
 ax3.plot(df_1109_4_30[fl_wheel_speed] * wheel_speed_coeff, label="fl wheel speed to rpm")
 ax3.plot(df_1109_4_30[motor_rpm] * (12/41), label="motor rpm to wheel rpm")
 ax3.set_title("wheel speed conversion vs motor rpm conversion for 1109-4_30")
 ax3.legend()
 
 ax4 = fig.add_subplot(224)
+# ax4.scatter(df_1109_4_53[fl_wheel_speed] * wheel_speed_coeff, df_1109_4_53[motor_rpm] * (12/41))
 ax4.plot(df_1109_4_53[fl_wheel_speed] * wheel_speed_coeff, label="fl wheel speed to rpm")
-ax4.plot(df_1109_4_53[motor_rpm] * (12/41), label="motor rpm to wheel rpm")
+ax4.plot(df_1109_4_53[motor_rpm] * (12/41), label="motor rpm to wheel rpm", alpha=0.6)
 ax4.set_title("wheel speed conversion vs motor rpm conversion for 1109-4_53")
 ax4.legend()
 
