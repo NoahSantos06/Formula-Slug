@@ -17,7 +17,7 @@ motor_rpm = "SME_TRQSPD_Speed"
 
 fig = plt.figure()
 
-wheel_speed_coeff = 0.8452494744062437
+wheel_speed_coeff = 0.6694028516086905
 rpm_to_mph_coeff = (2 * np.pi * 8 * 60) / 63360
 
 ax1 = fig.add_subplot(221)
